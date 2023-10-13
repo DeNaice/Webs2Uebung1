@@ -1,0 +1,10 @@
+# Project exclude paths
+/client/node_modules/
+/client/src/client.js
+/client/src/client.js.map
+/node_modules/
+/server/node_modules/
+/server/src/server.js
+/server/src/server.js.map
+/server/src/user.js
+/server/src/user.js.map
