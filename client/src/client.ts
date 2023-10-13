@@ -5,7 +5,7 @@ interface User {
   creationTime: string;
 }
 
-let socket = io.connect(window.location.protocol + '//' + window.location.host);
+//let socket = io.connect(window.location.protocol + '//' + window.location.host);
 
 
 document.addEventListener("DOMContentLoaded", () => {
