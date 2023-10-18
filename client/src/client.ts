@@ -1,3 +1,5 @@
+
+
 interface User {
   id: number;
   givenName: string;
@@ -5,8 +7,11 @@ interface User {
   creationTime: string;
 }
 
-//let socket = io.connect(window.location.protocol + '//' + window.location.host);
+let socket = io.connect(window.location.protocol + '//' + window.location.host);
 
+socket.on(`gets_edited`, function (data){});
+socket.on(`done_edited`, function (data){});
+socket.on(`delete`, function (data){});
 
 document.addEventListener("DOMContentLoaded", () => {
   //--- check, if user is already logged in (e.g. after refresh) -------------------------------------------------------

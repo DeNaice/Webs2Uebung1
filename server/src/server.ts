@@ -8,6 +8,7 @@ import {Connection, MysqlError, OkPacket} from "mysql";
 import mysql = require ("mysql");      // handles database connections
 import session = require ("express-session");
 import crypto = require("crypto")
+import{Server} from "socket.io"
 
 const database: Connection = mysql.createConnection({
   host: 'localhost',
@@ -20,7 +21,7 @@ const database: Connection = mysql.createConnection({
  * Define and start web-app server, define json-Parser                       *
  *****************************************************************************/
 const app = express();
-app.listen(8080, () => {
+let server = app.listen(8080, () => {
   console.log('Server started: http://localhost:8080');
   //---- connect to database ----------------------------------------------------
   database.connect((err: MysqlError) => {
@@ -31,6 +32,14 @@ app.listen(8080, () => {
     }
   });
 });
+let io = new Server(server);
+io.on(`connection`, (socket) =>{
+
+  console.log(`made socket connection with`, socket.id);
+  socket.on(`gets_edited`, function (data){});
+  socket.on(`done_edited`, function (data){});
+  socket.on(`delete`, function (data){});
+})
 app.use(express.json());
 /*****************************************************************************
  * session management configuration                                          *
@@ -55,6 +64,9 @@ declare module 'express-session' {
     user?: User
   }
 }
+
+
+
 
 /*****************************************************************************
  * STATIC ROUTES                                                             *

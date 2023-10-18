@@ -7,7 +7,10 @@
     "@types/mysql": "^2.15.21",
     "mysql": "^2.18.1",
     "express-session": "^1.17.3",
-    "@types/express-session": "^1.17.5"
+    "@types/express-session": "^1.17.5",
+    "@types/socket.io": "^3.0.1",
+    "@types/socket.io-client": "^1.4.36",
+    "socket.io": "^4.5.2"
   },
   "scripts": {
     "apidoc": "apidoc -i src -f .ts$ -o apidoc/",
